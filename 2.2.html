@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winkelmand</title>
+</head>
+<body>
+    <h1>Winkelmand Opdrachten</h1>
+ 
+    <script>
+
+        let winkelmandje = ["Bananen", "Whiskey", "Chips", "Bonen", "Aardappelen"];
+        let winkelmandLengte = winkelmandje.length;
+ 
+
+        document.body.innerHTML += `<p>Uw producten zijn: ${winkelmandje.join(", ")}</p>`;
+ 
+
+        let vierdeProduct = winkelmandje[3];
+        document.body.innerHTML += `<p>${vierdeProduct} staat op de vierde plek in uw winkelmand.</p>`;
+ 
+  
+        winkelmandje[1] = "Bier";
+
+        function add_product(product) {
+            winkelmandje.push(product);
+            document.body.innerHTML += `<p>Product toegevoegd: ${product}</p>`;
+            document.body.innerHTML += `<p>Uw nieuwe winkelmand: ${winkelmandje.join(", ")}</p>`;
+        }
+ 
+
+        if (winkelmandLengte > 1) {
+            document.body.innerHTML += `<p>Uw producten zijn: ${winkelmandje.join(", ")}</p>`;
+        } else {
+            document.body.innerHTML += `<p>U heeft niet genoeg producten om te tonen.</p>`;
+        }
+ 
+
+        if (winkelmandje[4] === "Drop") {
+            document.body.innerHTML += `<p>Uw producten zijn: ${winkelmandje.join(", ")}</p>`;
+        } else {
+            document.body.innerHTML += `<p>U heeft geen drop.</p>`;
+        }
+ 
+
+        document.body.innerHTML += `<p>Uw producten zijn: ${winkelmandje.join(", ")}</p>`;
+ 
+
+        let oudeWinkelmand = winkelmandje.slice();
+        winkelmandje.splice(0, 2);
+        document.body.innerHTML += `<p>Oude winkelmand: ${oudeWinkelmand.join(", ")}</p>`;
+        document.body.innerHTML += `<p>Nieuwe winkelmand: ${winkelmandje.join(", ")}</p>`;
+ 
+
+        winkelmandje.sort();
+        document.body.innerHTML += `<p>Winkelmand gesorteerd: ${winkelmandje.join(", ")}</p>`;
+ 
+
+        document.body.innerHTML += "<p>Producten weergegeven met behulp van een for loop:</p>";
+        document.body.innerHTML += "<ul>";
+        for (let i = 0; i < winkelmandje.length; i++) {
+            document.body.innerHTML += `<li>${winkelmandje[i]}</li>`;
+        }
+        document.body.innerHTML += "</ul>";
+    </script>
+ 
+  
+    <button onclick="add_product('Nieuw Product')">Product toevoegen</button>
+</body>
+</html>
+ 
